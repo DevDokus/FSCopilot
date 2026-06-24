@@ -2,7 +2,7 @@
 
 # ✈️ FSCopilot
 
-### Your hands-free, voice-controlled First Officer for Microsoft Flight Simulator
+### Your hands-free, voice-controlled First Officer for Microsoft Flight Simulator 24
 
 ![Version](https://img.shields.io/badge/version-0.0.7-5c3fa1)
 ![Platform](https://img.shields.io/badge/platform-Windows%20x64-0078D6)
