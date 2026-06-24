@@ -7,7 +7,6 @@
 ![Version](https://img.shields.io/badge/version-0.0.7-5c3fa1)
 ![Platform](https://img.shields.io/badge/platform-Windows%20x64-0078D6)
 ![Runs](https://img.shields.io/badge/100%25-Local%20%26%20Offline-2ecc71)
-![License](https://img.shields.io/badge/license-ISC-626891)
 
 **[⬇️ Download the latest release](https://github.com/DevDokus/FSCopilot/releases)**
 
