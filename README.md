@@ -2,18 +2,19 @@
 
 # ✈️ FSCopilot
 
-### Your hands-free, voice-controlled First Officer for Microsoft Flight Simulator 24
+### Your hands-free, voice-controlled First Officer for Microsoft Flight Simulator
 
-![Version](https://img.shields.io/badge/version-0.0.7-5c3fa1)
+![Version](https://img.shields.io/badge/version-0.0.8-5c3fa1)
 ![Platform](https://img.shields.io/badge/platform-Windows%20x64-0078D6)
 ![Runs](https://img.shields.io/badge/100%25-Local%20%26%20Offline-2ecc71)
+![License](https://img.shields.io/badge/license-Proprietary-626891)
 
 **[⬇️ Download the latest release](https://github.com/DevDokus/FSCopilot/releases)**
 
 </div>
 
 > [!IMPORTANT]
-> **FSCopilot is in early development (v0.0.7).** Some features may be incomplete, not work fully yet, or change significantly between releases. You're flying an early build — expect rapid changes, and thanks for being part of it! ✈️
+> **FSCopilot is in early development (v0.0.8).** Some features may be incomplete, not work fully yet, or change significantly between releases. You're flying an early build — expect rapid changes, and thanks for being part of it! ✈️
 
 ---
 
@@ -71,6 +72,10 @@ Copilot hears you, understands what you meant, and performs the action in the si
 | **Gear Up** | "gear up", "retract the gear", "wheels up" |
 | **Flaps Down** | "flaps down", "deploy flaps", "lower the flaps" |
 | **Flaps Up** | "flaps up", "retract flaps", "raise the flaps" |
+| **Parking Brake Set / Release** | "set parking brake", "apply the brakes", "release parking brake", "release the brakes" |
+| **Set Heading** | "set heading 251", "turn heading 030", "fly heading 180" |
+| **Engage Heading Hold** | "engage heading hold", "hold heading", "activate heading hold" |
+| **Autopilot On / Off** | "autopilot on", "engage autopilot", "autopilot off", "disengage autopilot" |
 
 Each command understands many natural variations — the examples above are just a taste. The in-app **Commands** tab lists every phrase for each action, and the command set is actively growing release over release.
 
@@ -84,6 +89,9 @@ The **Copilot** tab is a real-time glass panel fed directly by the simulator, re
 - **Primary instruments** — airspeed, altitude, heading, and vertical speed (with a climb/descent trend indicator).
 - **System states** — landing gear, landing lights, parking brake, autopilot, and flaps.
 - **Altimeter setting** — shown in both **inHg** and **hPa**, so it reads correctly no matter which region's procedures you fly.
+- **Altimeter transition reminder** — triggers "SET STD" or "SET local pressure" alarms based on flight altitude and region limits.
+- **Speed limit warning** — displays custom visual and vocal alerts for exceeding 250 kts below 10,000 ft.
+- **Landing lights reminder** — warns when landing lights are off below 10,000 ft or still active above 10,000 ft.
 
 This gives you an at-a-glance overview of your aircraft without digging through cockpit menus — and it lays the groundwork for smarter, aircraft-aware commands in future updates.
 
@@ -149,4 +157,61 @@ FSCopilot is an independent, fan-made tool and is **not affiliated with, endorse
 
 **[⬇️ Get the latest version](https://github.com/DevDokus/FSCopilot/releases)**
 
-</div>
+---
+
+## 📜 Full Changelog
+
+<details>
+<summary>Click to expand full history</summary>
+
+### v0.0.8
+- **Voice-Activated Standby:** Copilot sits quietly in "Standby" and only listens when it hears your voice.
+- **Improved PC Performance:** Reduced idle background processing.
+- **Parking Brake:** Set & Release functionality implemented.
+- **Set Heading:** Dial in any heading via voice (e.g., "set heading 251").
+- **Heading Hold:** Engage heading hold via voice.
+- **Autopilot On/Off:** Voice control for autopilot with secure activation.
+- **Altimeter Reminder:** Alerts for Standard/Local pressure settings based on altitude/region.
+- **Speed Limit:** Warning for overspeed (>250 kts) below 10,000 ft.
+- **Landing Lights:** Reminder for lights off/on based on 10,000 ft threshold.
+- **Interface Polish:** Adjustable sound volume and faster status readiness.
+
+### v0.0.7
+- **Live Aircraft Dashboard:** Real-time data from the sim.
+- **Simulator Data Fixes:** Modernized data requests and variable alignment.
+- **Stability:** Fixed shutdown crashes and improved trend arrow smoothness.
+- **Info Refresh:** Updated in-app documentation.
+- **Speed-Up:** Faster transcription by keeping the engine loaded.
+- **Logo Sound Fix:** Consistent sound playback.
+- **Refactor:** Modularized codebase.
+- **Build:** Leaner installer sizes.
+
+### v0.0.6
+- **Voice Commands:** Improved intent recognition and direction correction.
+- **Speech Recognition:** Upgraded model and vocabulary priming.
+- **Faster Reaction:** Dedicated VAD for better speech/noise detection and faster cutoff.
+- **Security:** Sandboxed main window.
+- **Cleanup:** Leaner builds and startup reliability fixes.
+
+### v0.0.5
+- **MSFS24 Connectivity:** Initial integration for gear and flaps.
+- **UI/UX:** New Info hub, Commands view, and details modals.
+
+### v0.0.4
+- **AI Hardening:** Improved conversational grounding and directional logic.
+- **UI:** Persistent response bar, dynamic versioning.
+
+### v0.0.3
+- **Voice Interaction:** Smart VAD and fluid sentence recognition.
+- **AI Engine:** Contextual hints and JSON output hardening.
+- **Stability:** Binary path fixes and artifact filtering.
+- **UI:** Standby state and low-latency IPC.
+
+### v0.0.2
+- **Auto-Updater:** Seamless background updates with progress indicators.
+- **Fixes:** Artifact standardization and ESM/CommonJS compatibility.
+
+### v0.0.1
+- **Launch:** Initial production framework and core AI integration.
+</details>
+
