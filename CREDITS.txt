@@ -1,0 +1,40 @@
+THIRD-PARTY SOFTWARE NOTICES AND ATTRIBUTIONS
+
+This application, created by DevDokus, is built using open-source and community-licensed software. The relevant copyright notices, licensing terms, and disclaimers for these third-party components are detailed below.
+
+========================================================================
+1. ELECTRON & OPENAI WHISPER
+========================================================================
+The Electron framework and OpenAI's Whisper model are licensed under the MIT License.
+
+MIT License
+Copyright (c) OpenJS Foundation and Electron contributors
+Copyright (c) OpenAI
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+========================================================================
+2. LLaMA (META LLaMA COMMUNITY LICENSE)
+========================================================================
+This application utilizes the LLaMA model developed by Meta Platforms, Inc. Your local use of this model is subject to the Meta LLaMA Community License Agreement. 
+
+Copyright (c) Meta Platforms, Inc. All Rights Reserved.
+
+The LLaMA model is used in accordance with Meta's Acceptable Use Policy. This software does not exceed the commercial threshold of 700 million monthly active users specified in the Meta LLaMA Community License.
+
+========================================================================
+3. SoX (SOUND EXCHANGE)
+========================================================================
+This application uses Sound eXchange (SoX) to process audio files. 
+
+- The SoX core engine is licensed under the GNU General Public License (GPL v2).
+- The libsox library is licensed under the GNU Lesser General Public License (LGPL v2.1).
+
+Notice of Loose Coupling & Source Code:
+This software interacts with the SoX command-line binary exclusively via external command-line execution (as a standalone, loosely coupled subprocess). This application does not statically or dynamically link to SoX source code, and no modifications have been made to the SoX binary.
+
+In compliance with the GPL/LGPL, you can find the original, unmodified source code for SoX and a copy of its complete license texts online at: https://sourceforge.net
