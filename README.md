@@ -4,7 +4,7 @@
 
 ### Your hands-free, voice-controlled First Officer for Microsoft Flight Simulator
 
-![Version](https://img.shields.io/badge/version-0.0.8-5c3fa1)
+![Version](https://img.shields.io/badge/version-0.0.9-5c3fa1)
 ![Platform](https://img.shields.io/badge/platform-Windows%20x64-0078D6)
 ![Runs](https://img.shields.io/badge/100%25-Local%20%26%20Offline-2ecc71)
 ![License](https://img.shields.io/badge/license-Proprietary-626891)
@@ -14,7 +14,7 @@
 </div>
 
 > [!IMPORTANT]
-> **FSCopilot is in early development (v0.0.8).** Some features may be incomplete, not work fully yet, or change significantly between releases. You're flying an early build — expect rapid changes, and thanks for being part of it! ✈️
+> **FSCopilot is in early development (v0.0.9).** Some features may be incomplete, not work fully yet, or change significantly between releases. You're flying an early build — expect rapid changes, and thanks for being part of it! ✈️
 
 ---
 
@@ -35,7 +35,10 @@ Copilot hears you, understands what you meant, and performs the action in the si
 - 🎙️ **Natural voice control** — speak conversationally; no rigid command syntax to memorize.
 - 🧠 **Built-in AI brain** — a local language model interprets your *intent*, not just keywords.
 - 🛩️ **Live aircraft dashboard** — real-time airspeed, altitude, heading, vertical speed, and more.
+- 🎛️ **Full autopilot control** — heading, altitude, vertical speed, LNAV/VNAV, localizer, approach, level change, speed, and autothrottle arm/speed hold, all by voice.
+- 🔇 **Echo-free conversations** — the microphone automatically pauses for the exact length of Copilot's own spoken reply, so it can never hear (and act on) itself.
 - 🔊 **Spoken confirmations** — every action is read back so you always know it was heard.
+- ⚙️ **Customizable settings** — adjust Copilot's volume, switch between voice-activation and push-to-talk, and configure regional transition altitudes to match where you fly.
 - 🔒 **100% local & private** — no internet, no telemetry, no data collection. Ever.
 - 🚀 **Auto-updating** — new versions install themselves seamlessly in the background.
 - 🪟 **One-click installer** — a single Windows setup file; no dependencies to hunt down.
@@ -76,6 +79,18 @@ Copilot hears you, understands what you meant, and performs the action in the si
 | **Set Heading** | "set heading 251", "turn heading 030", "fly heading 180" |
 | **Engage Heading Hold** | "engage heading hold", "hold heading", "activate heading hold" |
 | **Autopilot On / Off** | "autopilot on", "engage autopilot", "autopilot off", "disengage autopilot" |
+| **Set Altitude** | "set altitude 210", "climb and maintain flight level 350", "set altitude five thousand" |
+| **Engage Altitude Hold** | "engage altitude hold", "hold altitude", "capture the altitude" |
+| **Set Vertical Speed** | "set vertical speed 1500", "vertical speed minus 1000", "descend at vertical speed 800" |
+| **Engage Vertical Speed Mode** | "engage vertical speed", "vertical speed mode", "hold vertical speed" |
+| **Lateral Navigation (LNAV)** | "engage LNAV", "activate lateral navigation", "follow the flight plan" |
+| **Vertical Navigation (VNAV)** | "engage VNAV", "activate vertical nav", "vnav mode" |
+| **Localizer (LOC)** | "engage the localizer", "capture the localizer", "arm the localizer" |
+| **Approach (APP)** | "arm approach", "engage approach mode", "activate approach" |
+| **Level Change (FLC)** | "engage level change", "activate level change", "flight level change mode" |
+| **Set Speed** | "set speed 250", "select airspeed two five zero", "set the airspeed to 280" |
+| **Arm / Disarm Autothrottle** | "arm the autothrottle", "engage the autothrottle", "disarm the autothrottle", "turn off the autothrottle" |
+| **Engage Speed Hold** | "speed hold", "engage speed mode", "activate speed hold" (arms the autothrottle first if it isn't already) |
 
 Each command understands many natural variations — the examples above are just a taste. The in-app **Commands** tab lists every phrase for each action, and the command set is actively growing release over release.
 
@@ -87,13 +102,27 @@ The **Copilot** tab is a real-time glass panel fed directly by the simulator, re
 
 - **Aircraft identity** — the current airframe's name and type, with a live connection indicator.
 - **Primary instruments** — airspeed, altitude, heading, and vertical speed (with a climb/descent trend indicator).
+- **True ground distance** — the altitude tile shows your real height above the terrain below you, accurate no matter how the altimeter is set.
 - **System states** — landing gear, landing lights, parking brake, autopilot, and flaps.
 - **Altimeter setting** — shown in both **inHg** and **hPa**, so it reads correctly no matter which region's procedures you fly.
-- **Altimeter transition reminder** — triggers "SET STD" or "SET local pressure" alarms based on flight altitude and region limits.
+- **Altimeter transition reminder** — triggers "SET STD" or "SET local pressure" alarms based on flight altitude and your region's configured transition altitude (see "Settings & Customization" below).
 - **Speed limit warning** — displays custom visual and vocal alerts for exceeding 250 kts below 10,000 ft.
 - **Landing lights reminder** — warns when landing lights are off below 10,000 ft or still active above 10,000 ft.
+- **Autopilot Configuration panel** — every selector and mode (HDG, LNAV, VNAV, FLC, ALT, V/S, LOC, APP, SPD, autothrottle) lit up live when it's engaged, with the selected target values shown alongside.
+- **Weather, Airport & Runway panel** — live wind, temperature, QNH and visibility; the head/crosswind component for a landing on your current heading; the nearest airport's ICAO code, elevation, distance and bearing; and your tuned COM/NAV radios and ILS details.
 
 This gives you an at-a-glance overview of your aircraft without digging through cockpit menus — and it lays the groundwork for smarter, aircraft-aware commands in future updates.
+
+---
+
+## ⚙️ Settings & Customization
+
+A dedicated **Settings** tab lets you tailor Copilot to how you fly, with every choice saved automatically on your PC:
+
+- **Copilot Volume** — a slider for the voice and interface sound volume, applied live as you drag.
+- **Listening Mode** — stick with continuous voice activation, or switch to **push-to-talk** and bind any key: press once to arm a single command, no wake word needed.
+- **Remember App Position** — reopens the window at the size, position, and monitor you last used.
+- **Transition Altitude Zones** — the altitude where you switch between local pressure and standard (1013 hPa / 29.92 inHg) varies by region. Configure it per zone with simple sliders (1,000 ft steps) — Default (Europe & anywhere unrecognized), North America, and Japan ship as examples, each independently adjustable to match real-world or custom procedures.
 
 ---
 
@@ -109,11 +138,11 @@ FSCopilot is a self-contained pipeline that takes raw microphone audio and turns
 
 4. **📝 Speech-to-text** — your words are transcribed by a built-in speech-recognition model that runs as a persistent, always-warm background service. Keeping it loaded between commands (instead of spinning it up each time) is a big part of why responses feel near-instant rather than laggy.
 
-5. **🧠 Intent interpretation** — the transcribed text is handed to a compact, locally-run language model that works out what you actually *meant* and maps it onto one of your real, configured commands. This is where most of Copilot's engineering lives: the model's output is tightly constrained so it can only ever return a genuine command (or "unknown"), and additional validation layers independently sanity-check the result — for instance, catching cases where a control might otherwise be moved in the opposite direction to what you asked. Anything the system isn't confident enough about is quietly ignored rather than risking the wrong input.
+5. **🧠 Intent interpretation** — the transcribed text is handed to a compact, locally-run language model that works out what you actually *meant* and maps it onto one of your real, configured commands. This is where most of Copilot's engineering lives: the model's output is tightly constrained so it can only ever return a genuine command (or "unknown"), and additional validation layers independently sanity-check the result — for instance, catching cases where a control might otherwise be moved in the opposite direction to what you asked, or where two similarly-worded commands (like the autothrottle and the autopilot) could be confused for one another. Anything the system isn't confident enough about is quietly ignored rather than risking the wrong input.
 
 6. **🎮 Execution** — the confirmed command is sent to Microsoft Flight Simulator through its **official SimConnect interface** — the same channel professional add-ons use. It sets the native simulator variable directly, exactly as if you'd moved the control yourself, so each aircraft's own systems and operating limits still apply.
 
-7. **🔊 Confirmation** — a short spoken cue plays so you know the action was heard and carried out, without ever needing to glance away from the windscreen.
+7. **🔊 Confirmation** — a short spoken cue plays so you know the action was heard and carried out, without ever needing to glance away from the windscreen. The microphone is automatically paused for exactly as long as that reply takes to play, measured from the actual audio clip rather than guessed — so Copilot's own voice can never be picked back up and misread as your next command.
 
 Alongside this command pipeline, FSCopilot keeps a separate, always-on link to the simulator that feeds the **live aircraft dashboard** and will power increasingly aircraft-aware behavior over time. Both connections re-establish themselves automatically if the simulator restarts or a flight is reloaded, so you rarely have to think about them.
 
@@ -163,6 +192,21 @@ FSCopilot is an independent, fan-made tool and is **not affiliated with, endorse
 
 <details>
 <summary>Click to expand full history</summary>
+
+### v0.0.9
+- **Settings Page:** New tab for Copilot volume, push-to-talk binding, remember-window-position, and per-region transition altitudes — all saved to disk.
+- **Push-to-Talk:** Optional alternative to continuous listening; press a bound key once to arm a single command, no wake word required.
+- **Altitude & Vertical Speed by Voice:** Set a target altitude or vertical speed, or engage their hold modes, by voice.
+- **More Autopilot Voice Commands:** LNAV, VNAV, Localizer, Approach, Level Change, and Speed Set.
+- **Autothrottle Arm & Speed Hold:** Arm/disarm the autothrottle and engage speed-hold mode by voice; speed hold auto-arms the autothrottle first if needed.
+- **More Reliable LNAV:** Engaging LNAV now primes heading mode first, matching a confirmed default-737 engagement quirk.
+- **Accurate Ground Distance:** The altitude tile's "GND" reading now shows true height above terrain, independent of the altimeter setting, instead of raw terrain elevation.
+- **Configurable Transition Altitudes:** Move the hardcoded region values into Settings, with adjustable sliders per zone.
+- **Echo-Loop Prevention:** The microphone now pauses for the exact measured duration of Copilot's own spoken reply, so it can't hear and misinterpret itself.
+- **Sharper Command Recognition:** Hardened the AI against confusing similarly-worded commands (notably autothrottle vs. autopilot), including a safety net that blocks a misrouted command from acting on the wrong system.
+- **Autopilot Configuration Panel:** Live state of every autopilot selector and mode at a glance.
+- **Weather, Airport & Runway Panel:** Live weather, landing wind components, nearest airport, and tuned radios/ILS.
+- **Altitude & Heading Reference Cues:** Visual climb/descend and turn-to-heading reminders when a new target is selected.
 
 ### v0.0.8
 - **Voice-Activated Standby:** Copilot sits quietly in "Standby" and only listens when it hears your voice.
