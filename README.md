@@ -9,7 +9,17 @@
 ![Runs](https://img.shields.io/badge/100%25-Local%20%26%20Offline-2ecc71)
 ![License](https://img.shields.io/badge/license-Proprietary-626891)
 
-**[⬇️ Download the latest release](https://github.com/DevDokus/FSCopilot/releases)**
+<a href="https://github.com/DevDokus/FSCopilot/releases">
+  <b>⬇️ Download the latest release</b>
+</a>
+<br>
+<a href="https://discord.com/invite/ksQRq25Hcz" style="display: inline-flex; align-items: flex-end; text-decoration: none; color: inherit;">
+  <img src="https://cdn3.emoji.gg/emojis/9738-discord-ico.png" 
+       width="24" height="24" 
+       style="margin-right: 8px;" 
+       alt="discord_ico"> 
+  <b>Join our Discord!</b>
+</a>
 
 </div>
 
@@ -183,7 +193,17 @@ FSCopilot is an independent, fan-made tool and is **not affiliated with, endorse
 
 **Made with ❤️ for the flight sim community by [DevDokus](https://github.com/DevDokus)**
 
-**[⬇️ Get the latest version](https://github.com/DevDokus/FSCopilot/releases)**
+<a href="https://github.com/DevDokus/FSCopilot/releases">
+  <b>⬇️ Download the latest release</b>
+</a>
+<br>
+<a href="https://discord.com/invite/ksQRq25Hcz" style="display: inline-flex; align-items: flex-end; text-decoration: none; color: inherit;">
+  <img src="https://cdn3.emoji.gg/emojis/9738-discord-ico.png" 
+       width="24" height="24" 
+       style="margin-right: 8px;" 
+       alt="discord_ico"> 
+  <b>Join our Discord!</b>
+</a>
 
 ---
 
