@@ -4,7 +4,7 @@
 
 ### Your hands-free, voice-controlled First Officer for Microsoft Flight Simulator
 
-![Version](https://img.shields.io/badge/version-0.0.9-5c3fa1)
+![Version](https://img.shields.io/badge/version-0.1.0-5c3fa1)
 ![Platform](https://img.shields.io/badge/platform-Windows%20x64-0078D6)
 ![Runs](https://img.shields.io/badge/100%25-Local%20%26%20Offline-2ecc71)
 ![License](https://img.shields.io/badge/license-Proprietary-626891)
@@ -14,7 +14,7 @@
 </div>
 
 > [!IMPORTANT]
-> **FSCopilot is in early development (v0.0.9).** Some features may be incomplete, not work fully yet, or change significantly between releases. You're flying an early build — expect rapid changes, and thanks for being part of it! ✈️
+> **FSCopilot is in early development (v0.1.0).** Some features may be incomplete, not work fully yet, or change significantly between releases. You're flying an early build — expect rapid changes, and thanks for being part of it! ✈️
 
 ---
 
@@ -35,7 +35,7 @@ Copilot hears you, understands what you meant, and performs the action in the si
 - 🎙️ **Natural voice control** — speak conversationally; no rigid command syntax to memorize.
 - 🧠 **Built-in AI brain** — a local language model interprets your *intent*, not just keywords.
 - 🛩️ **Live aircraft dashboard** — real-time airspeed, altitude, heading, vertical speed, and more.
-- 🎛️ **Full autopilot control** — heading, altitude, vertical speed, LNAV/VNAV, localizer, approach, level change, speed, and autothrottle arm/speed hold, all by voice.
+- 🎛️ **Full autopilot control** — heading, altitude, vertical speed, LNAV, localizer, approach, level change, speed, and autothrottle arm/speed hold, all by voice.
 - 🔇 **Echo-free conversations** — the microphone automatically pauses for the exact length of Copilot's own spoken reply, so it can never hear (and act on) itself.
 - 🔊 **Spoken confirmations** — every action is read back so you always know it was heard.
 - ⚙️ **Customizable settings** — adjust Copilot's volume, switch between voice-activation and push-to-talk, and configure regional transition altitudes to match where you fly.
@@ -79,15 +79,14 @@ Copilot hears you, understands what you meant, and performs the action in the si
 | **Set Heading** | "set heading 251", "turn heading 030", "fly heading 180" |
 | **Engage Heading Hold** | "engage heading hold", "hold heading", "activate heading hold" |
 | **Autopilot On / Off** | "autopilot on", "engage autopilot", "autopilot off", "disengage autopilot" |
-| **Set Altitude** | "set altitude 210", "climb and maintain flight level 350", "set altitude five thousand" |
+| **Set Altitude** | "set altitude 210", "descend and maintain 5000 feet", "climb and maintain flight level 350", "set altitude five thousand", "set altitude twenty-five hundred" |
 | **Engage Altitude Hold** | "engage altitude hold", "hold altitude", "capture the altitude" |
 | **Set Vertical Speed** | "set vertical speed 1500", "vertical speed minus 1000", "descend at vertical speed 800" |
 | **Engage Vertical Speed Mode** | "engage vertical speed", "vertical speed mode", "hold vertical speed" |
 | **Lateral Navigation (LNAV)** | "engage LNAV", "activate lateral navigation", "follow the flight plan" |
-| **Vertical Navigation (VNAV)** | "engage VNAV", "activate vertical nav", "vnav mode" |
 | **Localizer (LOC)** | "engage the localizer", "capture the localizer", "arm the localizer" |
 | **Approach (APP)** | "arm approach", "engage approach mode", "activate approach" |
-| **Level Change (FLC)** | "engage level change", "activate level change", "flight level change mode" |
+| **Level Change (FLC)** | "engage level change", "activate level change", "flight level change mode", "flight level change please", "level change please" |
 | **Set Speed** | "set speed 250", "select airspeed two five zero", "set the airspeed to 280" |
 | **Arm / Disarm Autothrottle** | "arm the autothrottle", "engage the autothrottle", "disarm the autothrottle", "turn off the autothrottle" |
 | **Engage Speed Hold** | "speed hold", "engage speed mode", "activate speed hold" (arms the autothrottle first if it isn't already) |
@@ -108,7 +107,7 @@ The **Copilot** tab is a real-time glass panel fed directly by the simulator, re
 - **Altimeter transition reminder** — triggers "SET STD" or "SET local pressure" alarms based on flight altitude and your region's configured transition altitude (see "Settings & Customization" below).
 - **Speed limit warning** — displays custom visual and vocal alerts for exceeding 250 kts below 10,000 ft.
 - **Landing lights reminder** — warns when landing lights are off below 10,000 ft or still active above 10,000 ft.
-- **Autopilot Configuration panel** — every selector and mode (HDG, LNAV, VNAV, FLC, ALT, V/S, LOC, APP, SPD, autothrottle) lit up live when it's engaged, with the selected target values shown alongside.
+- **Autopilot Configuration panel** — every selector and mode (HDG, LNAV, FLC, ALT, V/S, LOC, APP, SPD, autothrottle) lit up live when it's engaged, with the selected target values shown alongside.
 - **Weather, Airport & Runway panel** — live wind, temperature, QNH and visibility; the head/crosswind component for a landing on your current heading; the nearest airport's ICAO code, elevation, distance and bearing; and your tuned COM/NAV radios and ILS details.
 
 This gives you an at-a-glance overview of your aircraft without digging through cockpit menus — and it lays the groundwork for smarter, aircraft-aware commands in future updates.
@@ -193,11 +192,18 @@ FSCopilot is an independent, fan-made tool and is **not affiliated with, endorse
 <details>
 <summary>Click to expand full history</summary>
 
+### v0.0.10
+- **Improved ATC Altitude Recognition:** "Descend and maintain" and "climb and maintain" clearances are now deterministically recognized as Set Altitude commands.
+- **Fixed Flight Level Change Routing:** Requests such as "flight level change please" and "level change please" now correctly engage FLC instead of Altitude Hold.
+- **Improved Spoken Number Parsing:** Magnitude-based numbers such as "five thousand" and "twenty-five hundred" are now interpreted correctly for altitude, heading, vertical speed, and airspeed. Singular and plural forms ("thousand"/"thousands", "hundred"/"hundreds") are both supported.
+- **Removed VNAV Voice Command:** Deprecated and removed because SimConnect provides no standard event for this function.
+- **New Default Settings:** Fresh installations now default the push-to-talk key to **Space** and Copilot volume to **50%**.
+
 ### v0.0.9
 - **Settings Page:** New tab for Copilot volume, push-to-talk binding, remember-window-position, and per-region transition altitudes — all saved to disk.
 - **Push-to-Talk:** Optional alternative to continuous listening; press a bound key once to arm a single command, no wake word required.
 - **Altitude & Vertical Speed by Voice:** Set a target altitude or vertical speed, or engage their hold modes, by voice.
-- **More Autopilot Voice Commands:** LNAV, VNAV, Localizer, Approach, Level Change, and Speed Set.
+- **More Autopilot Voice Commands:** LNAV, Localizer, Approach, Level Change, and Speed Set.
 - **Autothrottle Arm & Speed Hold:** Arm/disarm the autothrottle and engage speed-hold mode by voice; speed hold auto-arms the autothrottle first if needed.
 - **More Reliable LNAV:** Engaging LNAV now primes heading mode first, matching a confirmed default-737 engagement quirk.
 - **Accurate Ground Distance:** The altitude tile's "GND" reading now shows true height above terrain, independent of the altimeter setting, instead of raw terrain elevation.
