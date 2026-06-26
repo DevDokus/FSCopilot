@@ -192,7 +192,7 @@ FSCopilot is an independent, fan-made tool and is **not affiliated with, endorse
 <details>
 <summary>Click to expand full history</summary>
 
-### v0.0.10
+### v0.1.0
 - **Improved ATC Altitude Recognition:** "Descend and maintain" and "climb and maintain" clearances are now deterministically recognized as Set Altitude commands.
 - **Fixed Flight Level Change Routing:** Requests such as "flight level change please" and "level change please" now correctly engage FLC instead of Altitude Hold.
 - **Improved Spoken Number Parsing:** Magnitude-based numbers such as "five thousand" and "twenty-five hundred" are now interpreted correctly for altitude, heading, vertical speed, and airspeed. Singular and plural forms ("thousand"/"thousands", "hundred"/"hundreds") are both supported.
