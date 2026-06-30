@@ -4,7 +4,7 @@
 
 ### Your hands-free, voice-controlled First Officer for Microsoft Flight Simulator
 
-![Version](https://img.shields.io/badge/version-0.1.0-5c3fa1)
+![Version](https://img.shields.io/badge/version-0.1.2-5c3fa1)
 ![Platform](https://img.shields.io/badge/platform-Windows%20x64-0078D6)
 ![Runs](https://img.shields.io/badge/100%25-Local%20%26%20Offline-2ecc71)
 ![License](https://img.shields.io/badge/license-Proprietary-626891)
@@ -24,7 +24,7 @@
 </div>
 
 > [!IMPORTANT]
-> **FSCopilot is in early development (v0.1.0).** Some features may be incomplete, not work fully yet, or change significantly between releases. You're flying an early build — expect rapid changes, and thanks for being part of it! ✈️
+> **FSCopilot is in early development (v0.1.2).** Some features may be incomplete, not work fully yet, or change significantly between releases. You're flying an early build — expect rapid changes, and thanks for being part of it! ✈️
 
 ---
 
@@ -45,9 +45,12 @@ Copilot hears you, understands what you meant, and performs the action in the si
 - 🎙️ **Natural voice control** — speak conversationally; no rigid command syntax to memorize.
 - 🧠 **Built-in AI brain** — a local language model interprets your *intent*, not just keywords.
 - 🛩️ **Live aircraft dashboard** — real-time airspeed, altitude, heading, vertical speed, and more.
-- 🎛️ **Full autopilot control** — heading, altitude, vertical speed, LNAV, localizer, approach, level change, speed, and autothrottle arm/speed hold, all by voice.
+- ✈️ **Aircraft-specific profiles** — dedicated command mappings for each supported airframe, so the right cockpit input is sent for the aircraft you're actually flying. Currently covers the **Boeing 737 MAX 8 BBJ** and the **iniBuilds Airbus A350-1000**, with profile-aware command filtering that dims irrelevant commands in the UI.
+- 🎛️ **Full autopilot control** — heading, altitude, vertical speed, LNAV, localizer, approach, level change, speed, and autothrottle arm/speed hold by voice. A350 pilots also get Open Descent, Open Climb, and VNAV via FCU knob pulls.
+- 🔔 **Automatic altimeter reminders** — Copilot speaks up when you cross the transition altitude climbing or descending, so you never miss a baro switch.
 - 🔇 **Echo-free conversations** — the microphone automatically pauses for the exact length of Copilot's own spoken reply, so it can never hear (and act on) itself.
 - 🔊 **Spoken confirmations** — every action is read back so you always know it was heard.
+- 💬 **CoChat** — open the built-in LLaMA AI as a standalone chat window directly from the app header for quick lookups, aircraft questions, or general conversation.
 - ⚙️ **Customizable settings** — adjust Copilot's volume, switch between voice-activation and push-to-talk, and configure regional transition altitudes to match where you fly.
 - 🔒 **100% local & private** — no internet, no telemetry, no data collection. Ever.
 - 🚀 **Auto-updating** — new versions install themselves seamlessly in the background.
@@ -85,6 +88,11 @@ Copilot hears you, understands what you meant, and performs the action in the si
 | **Gear Up** | "gear up", "retract the gear", "wheels up" |
 | **Flaps Down** | "flaps down", "deploy flaps", "lower the flaps" |
 | **Flaps Up** | "flaps up", "retract flaps", "raise the flaps" |
+| **Flaps 1 / 2 / 3** *(A350 only)* | "flaps one", "flaps two", "flaps three" |
+| **Flaps Full** *(A350 only)* | "flaps full", "flaps down" |
+| **Open Descent** *(A350 only)* | "open descent", "OP DES", "engage open descent" |
+| **Open Climb** *(A350 only)* | "open climb", "OP CLB", "engage open climb" |
+| **VNAV** *(A350 only)* | "engage VNAV", "vertical navigation" |
 | **Parking Brake Set / Release** | "set parking brake", "apply the brakes", "release parking brake", "release the brakes" |
 | **Set Heading** | "set heading 251", "turn heading 030", "fly heading 180" |
 | **Engage Heading Hold** | "engage heading hold", "hold heading", "activate heading hold" |
@@ -100,6 +108,9 @@ Copilot hears you, understands what you meant, and performs the action in the si
 | **Set Speed** | "set speed 250", "select airspeed two five zero", "set the airspeed to 280" |
 | **Arm / Disarm Autothrottle** | "arm the autothrottle", "engage the autothrottle", "disarm the autothrottle", "turn off the autothrottle" |
 | **Engage Speed Hold** | "speed hold", "engage speed mode", "activate speed hold" (arms the autothrottle first if it isn't already) |
+
+> [!NOTE]
+> Commands marked **(A350 only)** are specific to the iniBuilds Airbus A350 profile and have no effect on Boeing aircraft or default simulator planes. On the A350, the standard **Flaps Down / Flaps Up** commands still work for a quick full-travel move, but the individual detent positions (1, 2, 3, Full) give you precise control of each lever position. The **Open Descent**, **Open Climb**, and **VNAV** commands act on the A350's FCU altitude knob — pull for Open Descent/Climb, push for VNAV — mirroring the physical gesture you would make in the cockpit.
 
 Each command understands many natural variations — the examples above are just a taste. The in-app **Commands** tab lists every phrase for each action, and the command set is actively growing release over release.
 
@@ -211,6 +222,22 @@ FSCopilot is an independent, fan-made tool and is **not affiliated with, endorse
 
 <details>
 <summary>Click to expand full history</summary>
+
+### v0.1.2
+- **Open Descent / Open Climb (A350):** Say "open descent" / "OP DES" or "open climb" / "OP CLB" to pull the A350's FCU altitude knob and engage the respective vertical mode.
+- **VNAV (A350):** Say "engage VNAV" or "vertical navigation" to push the altitude knob and hand vertical guidance to the FMS.
+- **Automatic Altimeter Reminders:** Copilot now speaks a reminder when you climb through the transition altitude (set STD) or descend back through it (set local QNH). The trigger altitude follows whatever you've configured in Settings.
+- **Profile-Aware Commands Page:** The Commands page now sorts by the aircraft you're flying — applicable commands appear at the top, inapplicable ones are dimmed and moved to the bottom. The list refreshes live when you switch aircraft.
+- **Speed Hold Fix (Default 737 MAX 8 BBJ):** The SPEED hold command was being sent through an event the 737 BBJ quietly ignores; it now uses the correct MCP input event.
+- **Streamlined Header Navigation:** Updates and Info buttons moved from the sidebar into the app header, left of the clock, so they're reachable from any view without leaving the current page.
+- **CoChat:** New header button that opens the built-in LLaMA AI as a standalone popup window — the same chat previously only accessible via the link on the Info page.
+- **Supported Aircraft Browser:** New header button opening a popup that lists all considered aircraft with tiered status tags (Supported, Possibly Compatible, Unsupported).
+- **Minimum Window Size:** The main app window now enforces a minimum of 1500 × 820 px to prevent layout elements shuffling at narrow sizes.
+
+### v0.1.1
+- **Automatic Aircraft Detection:** Copilot reads the active airframe from the simulator on connect and live mid-session, selecting a matching command profile automatically. Falls back to the default mapping for any aircraft without a dedicated profile.
+- **First Addon Profile — iniBuilds A350-1000:** Full Airbus flap detent support (0, 1, 2, 3, FULL); Airbus-correct LNAV engagement (no heading-hold prime needed); Airbus-correct speed engagement (no forced autothrottle arm); self-correcting FCU knobs for speed, heading, altitude and vertical speed (turns, re-reads, corrects until the value matches); working gear lever; fixed autopilot and autothrottle buttons.
+- **Extensible Profile System:** Each aircraft profile inherits the default command set and overrides only what that airframe does differently, so adding a new aircraft is a matter of defining just its differences.
 
 ### v0.1.0
 - **Improved ATC Altitude Recognition:** "Descend and maintain" and "climb and maintain" clearances are now deterministically recognized as Set Altitude commands.
