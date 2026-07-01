@@ -4,7 +4,7 @@
 
 ### Your hands-free, voice-controlled First Officer for Microsoft Flight Simulator
 
-![Version](https://img.shields.io/badge/version-0.1.2-5c3fa1)
+![Version](https://img.shields.io/badge/version-0.1.3-5c3fa1)
 ![Platform](https://img.shields.io/badge/platform-Windows%20x64-0078D6)
 ![Runs](https://img.shields.io/badge/100%25-Local%20%26%20Offline-2ecc71)
 ![License](https://img.shields.io/badge/license-Proprietary-626891)
@@ -24,7 +24,7 @@
 </div>
 
 > [!IMPORTANT]
-> **FSCopilot is in early development (v0.1.2).** Some features may be incomplete, not work fully yet, or change significantly between releases. You're flying an early build — expect rapid changes, and thanks for being part of it! ✈️
+> **FSCopilot is in early development (v0.1.3).** Some features may be incomplete, not work fully yet, or change significantly between releases. You're flying an early build — expect rapid changes, and thanks for being part of it! ✈️
 
 ---
 
@@ -45,7 +45,9 @@ Copilot hears you, understands what you meant, and performs the action in the si
 - 🎙️ **Natural voice control** — speak conversationally; no rigid command syntax to memorize.
 - 🧠 **Built-in AI brain** — a local language model interprets your *intent*, not just keywords.
 - 🛩️ **Live aircraft dashboard** — real-time airspeed, altitude, heading, vertical speed, and more.
-- ✈️ **Aircraft-specific profiles** — dedicated command mappings for each supported airframe, so the right cockpit input is sent for the aircraft you're actually flying. Currently covers the **Boeing 737 MAX 8 BBJ** and the **iniBuilds Airbus A350-1000**, with profile-aware command filtering that dims irrelevant commands in the UI.
+- ✈️ **Aircraft-specific profiles** — dedicated command mappings for each supported airframe, so the right cockpit input is sent for the aircraft you're actually flying. Currently covers the **Boeing 737 MAX 8 BBJ**, the **iniBuilds Airbus A350-1000**, and the **Cessna 172SP G1000**, with profile-aware command filtering that dims irrelevant commands in the UI.
+- ⛽ **Optimize Fuel (C172SP)** — "optimize fuel" or "lean the mixture" leans the mixture step by step to true peak RPM, working either direction, in the background without blocking other commands.
+- 🎚️ **Live voice-sensitivity sliders** — adjust the background noise gate, minimum speech length, and silence-before-processing thresholds in Settings, applied instantly with no restart.
 - 🎛️ **Full autopilot control** — heading, altitude, vertical speed, LNAV, localizer, approach, level change, speed, and autothrottle arm/speed hold by voice. A350 pilots also get Open Descent, Open Climb, and VNAV via FCU knob pulls.
 - 🔔 **Automatic altimeter reminders** — Copilot speaks up when you cross the transition altitude climbing or descending, so you never miss a baro switch.
 - 🔇 **Echo-free conversations** — the microphone automatically pauses for the exact length of Copilot's own spoken reply, so it can never hear (and act on) itself.
@@ -90,6 +92,8 @@ Copilot hears you, understands what you meant, and performs the action in the si
 | **Flaps Up** | "flaps up", "retract flaps", "raise the flaps" |
 | **Flaps 1 / 2 / 3** *(A350 only)* | "flaps one", "flaps two", "flaps three" |
 | **Flaps Full** *(A350 only)* | "flaps full", "flaps down" |
+| **Flaps 10° / 20° / 30°** *(C172SP only)* | "flaps 10", "flaps 20", "flaps 30" |
+| **Optimize Fuel** *(C172SP only)* | "optimize fuel", "lean the mixture" |
 | **Open Descent** *(A350 only)* | "open descent", "OP DES", "engage open descent" |
 | **Open Climb** *(A350 only)* | "open climb", "OP CLB", "engage open climb" |
 | **VNAV** *(A350 only)* | "engage VNAV", "vertical navigation" |
@@ -222,6 +226,17 @@ FSCopilot is an independent, fan-made tool and is **not affiliated with, endorse
 
 <details>
 <summary>Click to expand full history</summary>
+
+### v0.1.3
+- **New Aircraft: Cessna C172SP G1000:** Dedicated command profile, listed as Supported (In Development), with the Commands page graying out systems this airframe doesn't have (gear, speed set/hold, localizer, autothrottle).
+- **Cessna Flap Commands:** "flaps 10", "flaps 20", and "flaps 30" for precise notch control, exclusive to the C172SP.
+- **New Command — Optimize Fuel:** "optimize fuel" or "lean the mixture" leans to true peak RPM by watching engine RPM, working either direction, in the background.
+- **Cessna Autopilot Altitude Fix:** The ALT SEL knob is now turned automatically so a spoken altitude takes effect immediately, instead of sitting on "-----" until manually nudged.
+- **Sharper Recognition:** Cessna flap numbers are read directly from speech instead of AI guesswork; closed a flaps/gear mix-up; autothrottle vs. autopilot safeguards now also cover "autothrottle" as a single word.
+- **Adjustable Voice Sensitivity:** New Settings sliders for Background Noise Gate, Minimum Speech Length, and Silence Before Processing, applied instantly.
+- **Faster Startup:** Engine warmup now happens automatically during startup, so the first spoken command is as fast as every one after it; a new "Engine Warmup…" status pill shows progress.
+- **Command Details Popup:** Now opens reliably every time, scrolls for long phrase lists, and keeps the Close button pinned on screen.
+- **Logo Audio:** Clicking the logo mid-line now stops it instead of skipping ahead, with clearer hover cues.
 
 ### v0.1.2
 - **Open Descent / Open Climb (A350):** Say "open descent" / "OP DES" or "open climb" / "OP CLB" to pull the A350's FCU altitude knob and engage the respective vertical mode.
