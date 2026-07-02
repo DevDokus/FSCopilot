@@ -4,7 +4,7 @@
 
 ### Your hands-free, voice-controlled First Officer for Microsoft Flight Simulator
 
-![Version](https://img.shields.io/badge/version-0.1.3-5c3fa1)
+![Version](https://img.shields.io/badge/version-0.1.4-5c3fa1)
 ![Platform](https://img.shields.io/badge/platform-Windows%20x64-0078D6)
 ![Runs](https://img.shields.io/badge/100%25-Local%20%26%20Offline-2ecc71)
 ![License](https://img.shields.io/badge/license-Proprietary-626891)
@@ -24,7 +24,7 @@
 </div>
 
 > [!IMPORTANT]
-> **FSCopilot is in early development (v0.1.3).** Some features may be incomplete, not work fully yet, or change significantly between releases. You're flying an early build — expect rapid changes, and thanks for being part of it! ✈️
+> **FSCopilot is in early development (v0.1.4).** Some features may be incomplete, not work fully yet, or change significantly between releases. You're flying an early build — expect rapid changes, and thanks for being part of it! ✈️
 
 ---
 
@@ -46,6 +46,7 @@ Copilot hears you, understands what you meant, and performs the action in the si
 - 🧠 **Built-in AI brain** — a local language model interprets your *intent*, not just keywords.
 - 🛩️ **Live aircraft dashboard** — real-time airspeed, altitude, heading, vertical speed, and more.
 - ✈️ **Aircraft-specific profiles** — dedicated command mappings for each supported airframe, so the right cockpit input is sent for the aircraft you're actually flying. Currently covers the **Boeing 737 MAX 8 BBJ**, the **iniBuilds Airbus A350-1000**, and the **Cessna 172SP G1000**, with profile-aware command filtering that dims irrelevant commands in the UI.
+- 📋 **Interactive Checklists** — full Preflight/Inflight/Postflight checklists that load automatically for whatever you're flying (currently the **Cessna 172SP G1000** and **iniBuilds A350-1000**), with tick-off progress, per-checklist and reset-all buttons, and must-verify items highlighted.
 - ⛽ **Optimize Fuel (C172SP)** — "optimize fuel" or "lean the mixture" leans the mixture step by step to true peak RPM, working either direction, in the background without blocking other commands.
 - 🎚️ **Live voice-sensitivity sliders** — adjust the background noise gate, minimum speech length, and silence-before-processing thresholds in Settings, applied instantly with no restart.
 - 🎛️ **Full autopilot control** — heading, altitude, vertical speed, LNAV, localizer, approach, level change, speed, and autothrottle arm/speed hold by voice. A350 pilots also get Open Descent, Open Climb, and VNAV via FCU knob pulls.
@@ -226,6 +227,15 @@ FSCopilot is an independent, fan-made tool and is **not affiliated with, endorse
 
 <details>
 <summary>Click to expand full history</summary>
+
+### v0.1.4
+- **Streamlined Copilot Page:** The Overview sub-tab is gone — the Copilot page now opens straight on the Aircraft dashboard, with the Aircraft/Weather/Airport buttons moved to the top, right below the response bar.
+- **New Checklists Menu:** Checklists now live under three fixed phase tabs — Preflight, Inflight, Postflight — with a second row of buttons for the individual checklists in that phase, automatically matching whichever aircraft you're flying.
+- **Full Cessna C172SP G1000 Checklists:** Flight Prep, Exterior, Cabin, Engine Start, After Engine Start, Before Taxi, Before Takeoff; Normal Takeoff, Climb, Cruise, Descent, ILS Approach, Before Landing, Go Around, Normal Landing; After Landing, After Parking, Securing Aircraft.
+- **Full iniBuilds A350-1000 Checklists:** The complete Airbus flow — Flight Prep through Takeoff on the ground, After Takeoff through Landing (including an OANS & BTV arrival-prep checklist) in the air, and After Landing through Securing the Aircraft on the ground — with must-verify items researched and highlighted since the source card carries no bold markup.
+- **Tick Items Off as You Go:** Click any line to check it off. Each checklist shows a live progress bar and count, the menu button tracks how far you are, and a finished checklist gets a green tick. Reset just the current checklist or all of them with a button.
+- **Progress Is Per-Flight:** Ticks are remembered while you fly, reset automatically when you switch aircraft, and aren't kept between app restarts.
+- **Scales With the Window:** Rows resize cleanly as you shrink or grow the app — dotted leaders reflow, and long reference values wrap instead of being pushed off the right edge.
 
 ### v0.1.3
 - **New Aircraft: Cessna C172SP G1000:** Dedicated command profile, listed as Supported (In Development), with the Commands page graying out systems this airframe doesn't have (gear, speed set/hold, localizer, autothrottle).
